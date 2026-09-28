@@ -26,7 +26,10 @@
 
 ## Запуск
 
+Нужен Python 3.10+. На macOS команда называется `python3`, а `python` появляется только внутри виртуального окружения.
+
 ```bash
+python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 export ANTHROPIC_API_KEY=...        # или `ant auth login`
 python -m character
@@ -63,6 +66,6 @@ tests/           # тесты на фейковом клиенте, без об�
 ## Тесты
 
 ```bash
-pip install pytest
+source .venv/bin/activate           # pytest уже есть в requirements.txt
 python -m pytest -q
 ```

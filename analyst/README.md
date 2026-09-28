@@ -14,14 +14,22 @@ AI-агент для системного и бизнес-аналитика н�
 
 ## Быстрый старт
 
+Нужны **Python 3.10+** и **Node.js 18+**. Версии проверяются командами `python3 --version` и `node --version`.
+
+> **macOS.** В системе нет команды `python`, есть только `python3`. Если его нет или версия ниже 3.10 (встроенный Python обычно 3.9), поставьте свежий через Homebrew: `brew install python@3.12 node`.
+> Поэтому окружение создаётся через `python3`. В активированном окружении команда `python` работает.
+
 ```bash
-python -m venv .venv && . .venv/bin/activate
+python3 -m venv .venv                  # с brew-версией: python3.12 -m venv .venv
+source .venv/bin/activate              # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 export ANTHROPIC_API_KEY=...            # или `ant auth login`
 
 cd web && npm install && npm run build && cd ..   # веб-интерфейс
 python -m analyst serve                           # http://127.0.0.1:8000
 ```
+
+В каждом новом окне терминала сначала выполните `source .venv/bin/activate`. Без этого возникнет `command not found: python` или `No module named ...`.
 
 При первом запуске создаётся пользователь `admin`, его токен печатается в консоль. Этим токеном нужно войти в веб-интерфейс.
 Документация API (Swagger) доступна по адресу `/docs`.
